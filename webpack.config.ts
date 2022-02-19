@@ -68,7 +68,7 @@ const common: Configuration = {
          * アセット類も同様に asset/inline は使用しない
          * なお、webpack@5.x では file-loader or url-loader は不要になった
          */
-        type: 'asset/resource',
+        type: 'assets/resource',
       },
     ],
   },
@@ -93,7 +93,7 @@ const main: Configuration = {
   target: 'electron-main',
   // エントリーファイル（チャンク名は 'main'）
   entry: {
-    main: './src/main.ts',
+    main: './src/main/main.ts',
   },
 };
 
@@ -112,7 +112,7 @@ const renderer: Configuration = {
   // セキュリティ対策として 'electron-renderer' ターゲットは使用しない
   target: 'web',
   entry: {
-    renderer: './src/renderer.tsx',
+    renderer: './src/renderer/index.tsx',
   },
   plugins: [
     // CSS を JS へバンドルせず別ファイルとして出力するプラグイン
