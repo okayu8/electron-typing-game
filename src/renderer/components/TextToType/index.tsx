@@ -1,9 +1,9 @@
 import React from 'react';
 
 export type TTextToType = {
-  children: React.ReactNode
-}
+  text: string;
+};
 
-export function TextToType({ children }: TTextToType) {
-  return <p>{children}</p>;
+export function TextToType({ text }: TTextToType) {
+  return <p>{text}</p>;
 }
