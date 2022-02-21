@@ -36,7 +36,6 @@
       { "extensions": [".jsx", ".tsx"] }
     ],
     "react/prop-type": "off",
-    "spaced-comment": ["error", "always", { "markers": ["/ <reference"] }],
-    "react/function-component-definition": "off"
+    "spaced-comment": ["error", "always", { "markers": ["/ <reference"] }]
   }
 }

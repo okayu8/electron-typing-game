@@ -7,7 +7,7 @@ export default {
   component: TextToType,
 };
 
-const defaultProps = { text: 'test teeee' };
+const defaultProps = { text: 'test' };
 
 export const Default: Story<TTextToType> = (args) => <TextToType {...args} />;
 Default.args = { ...defaultProps };
