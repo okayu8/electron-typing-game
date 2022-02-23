@@ -93,7 +93,7 @@ const main: Configuration = {
   target: 'electron-main',
   // エントリーファイル（チャンク名は 'main'）
   entry: {
-    main: './src/main/main.ts',
+    main: './src/main.ts',
   },
 };
 

@@ -2,7 +2,13 @@
   "extends": ".",
   "compilerOptions": {
     "module": "CommonJS",
-    "outDir": "dist"
+    "outDir": "./dist"
   },
-  "include": ["src/*.ts", "src/@types/*"]
+  "include": [
+    "src/*.ts",
+    "src/common/**/*",
+    "src/main/**/*",
+    "src/renderer/**/*",
+    "assets/**/*"
+  ]
 }
