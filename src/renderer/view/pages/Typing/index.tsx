@@ -1,7 +1,11 @@
+import { TextToType } from '../../components/TextToType';
+import { typingContainer } from './typingContainer';
+
 export const Typing = () => {
+  const { word, clearDisplayWord, isAllCleared } = typingContainer();
   return (
     <div>
-      <h1>Typing Page.</h1>
+      <TextToType text={word} onClearDisplayWord={clearDisplayWord} />
     </div>
   );
 };

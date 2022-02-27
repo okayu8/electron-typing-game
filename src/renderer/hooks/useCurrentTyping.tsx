@@ -1,14 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export type TUseCurrentIndex = {
+export type TUseCurrentTyping = {
   currentIndex: number;
+  isCollectType: boolean;
 };
 
-export const useCurrentIndex = (text: string): TUseCurrentIndex => {
+export const useCurrentTyping = (
+  text: string,
+  onClearDisplayWord: () => void
+): TUseCurrentTyping => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isCollectType, setIsCollectType] = useState(true);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
+      // タイプミスフラグの初期化
+      setIsCollectType(true);
+
       let currentChar = text[currentIndex];
       if (!currentChar) return;
       if (currentChar === ' ') {
@@ -16,7 +24,10 @@ export const useCurrentIndex = (text: string): TUseCurrentIndex => {
         if (e.key === currentChar) setCurrentIndex(currentIndex + 2);
         return;
       }
-      if (e.key !== currentChar) return;
+      if (e.key !== currentChar) {
+        setIsCollectType(false);
+        return;
+      }
       setCurrentIndex(currentIndex + 1);
     },
     [text, currentIndex, setCurrentIndex]
@@ -28,5 +39,9 @@ export const useCurrentIndex = (text: string): TUseCurrentIndex => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
 
-  return { currentIndex };
+  useEffect(() => {
+    if (text.length === currentIndex) onClearDisplayWord();
+  }, [currentIndex]);
+
+  return { currentIndex, isCollectType };
 };

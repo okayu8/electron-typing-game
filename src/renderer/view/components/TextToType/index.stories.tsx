@@ -7,7 +7,10 @@ export default {
   component: TextToType,
 };
 
-const defaultProps = { text: 'test' };
+const defaultProps = {
+  text: 'This is test text',
+  onClearDisplayWord: () => console.log('cleared!'),
+};
 
 export const Default: Story<TTextToType> = (args) => <TextToType {...args} />;
 Default.args = { ...defaultProps };
