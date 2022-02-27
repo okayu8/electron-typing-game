@@ -1,10 +1,10 @@
 import { useDisplayPage } from '../hooks/useDisplayPage';
 import { TPageList } from '../../common/types';
 
-import { Start } from './Pages/Start';
-import { Typing } from './Pages/Typing';
-import { Score } from './Pages/Score';
-import { Ranking } from './Pages/Ranking';
+import { Start } from './pages/Start';
+import { Typing } from './pages/Typing';
+import { Score } from './pages/Score';
+import { Ranking } from './pages/Ranking';
 
 export const App = () => {
   const { currentPage, setCurrentPage } = useDisplayPage();

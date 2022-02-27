@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { useTypedText } from '../../hooks/useTypedText';
-import { useCurrentIndex } from '../../hooks/useCurrentIndex';
+import { useTypedText } from '../../../hooks/useTypedText';
+import { useCurrentIndex } from '../../../hooks/useCurrentIndex';
 
 export type TTextToType = {
   text: string;
