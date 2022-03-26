@@ -9,7 +9,9 @@ export const useCurrentTyping = (
   text: string,
   onClearDisplayWord: () => void
 ): TUseCurrentTyping => {
+  // クリア文字数カウント
   const [currentIndex, setCurrentIndex] = useState(0);
+  // 正しい文字をタイプしたかのフラグ
   const [isCollectType, setIsCollectType] = useState(true);
 
   const handleKeyDown = useCallback(
@@ -40,7 +42,12 @@ export const useCurrentTyping = (
   }, [handleKeyDown]);
 
   useEffect(() => {
-    if (text.length === currentIndex) onClearDisplayWord();
+    if (text.length === currentIndex) {
+      // clear
+      onClearDisplayWord();
+      // クリア文字数カウントを0に戻す
+      setCurrentIndex(0);
+    }
   }, [currentIndex]);
 
   return { currentIndex, isCollectType };

@@ -1,4 +1,4 @@
-export const Score = () => {
+export const ScorePage = () => {
   return (
     <div>
       <h1>Score Page.</h1>

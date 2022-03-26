@@ -1,18 +1,18 @@
 import { useDisplayPage } from '../hooks/useDisplayPage';
 import { TPageList } from '../../common/types';
 
-import { Start } from './pages/Start';
-import { Typing } from './pages/Typing';
-import { Score } from './pages/Score';
-import { Ranking } from './pages/Ranking';
+import { StartPage } from './pages/Start';
+import { TypingPage } from './pages/Typing';
+import { ScorePage } from './pages/Score';
+import { RankingPage } from './pages/Ranking';
 
 export const App = () => {
   const { currentPage, setCurrentPage } = useDisplayPage();
   const PageComponentList: { [key in TPageList]: React.ReactNode } = {
-    start: <Start setCurrentPage={setCurrentPage} />,
-    typing: <Typing />,
-    score: <Score />,
-    ranking: <Ranking />,
+    start: <StartPage setCurrentPage={setCurrentPage} />,
+    typing: <TypingPage setCurrentPage={setCurrentPage} />,
+    score: <ScorePage />,
+    ranking: <RankingPage />,
   };
   return <div>{PageComponentList[currentPage]}</div>;
 };

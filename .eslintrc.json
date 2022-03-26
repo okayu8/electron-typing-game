@@ -27,7 +27,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "@emotion"],
   "rules": {
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/prefer-interface": "off",

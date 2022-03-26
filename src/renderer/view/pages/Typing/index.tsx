@@ -1,7 +1,11 @@
 import { TextToType } from '../../components/TextToType';
 import { typingContainer } from './typingContainer';
+import { TPageList } from '../../../../common/types';
 
-export const Typing = () => {
+type TTypingPage = {
+  setCurrentPage: (pageName: TPageList) => void;
+};
+export const TypingPage = ({ setCurrentPage }: TTypingPage) => {
   const { word, clearDisplayWord, isAllCleared } = typingContainer();
   return (
     <div>
