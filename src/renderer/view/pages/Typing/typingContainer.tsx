@@ -13,13 +13,14 @@ export const typingContainer = () => {
   const [isAllCleared, setiIsAllCleared] = useState(false);
 
   useEffect(() => {
-    setWord(words[currentIndex].text);
+    if (words[currentIndex]) {
+      setWord(words[currentIndex].text);
+    } else {
+      setiIsAllCleared(true);
+    }
   }, [currentIndex]);
 
   const clearDisplayWord = () => {
-    if (words.length < currentIndex + 1) {
-      setiIsAllCleared(true);
-    }
     setCurrentIndex(currentIndex + 1);
   };
 
