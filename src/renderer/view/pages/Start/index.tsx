@@ -1,15 +1,21 @@
+import styled from '@emotion/styled';
+
 import { TPageList } from '../../../../common/types';
 import { PAGE_LIST } from '../../../../common/const';
 
-export type TSart = {
+export type TSartPage = {
   setCurrentPage: (pageName: TPageList) => void;
 };
 
-export const Start = ({ setCurrentPage }: TSart) => {
+export const StartPage = ({ setCurrentPage }: TSartPage) => {
   return (
-    <div>
+    <Wrapper>
       <h1>Satrt Page.</h1>
       <button onClick={() => setCurrentPage(PAGE_LIST.TYPING)}>START</button>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  width: 800px;
+`;
