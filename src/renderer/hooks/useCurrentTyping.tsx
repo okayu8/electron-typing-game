@@ -26,6 +26,7 @@ export const useCurrentTyping = (
         if (e.key === currentChar) setCurrentIndex(currentIndex + 2);
         return;
       }
+      if (e.key === 'Shift') return;
       if (e.key !== currentChar) {
         setIsCollectType(false);
         return;
