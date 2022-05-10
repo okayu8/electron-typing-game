@@ -19,19 +19,21 @@ export const useCurrentTyping = (
       // タイプミスフラグの初期化
       setIsCollectType(true);
 
-      let currentChar = text[currentIndex];
+      // 現在のタイピング対象の文字
+      const currentChar = text[currentIndex];
+      // 次にタイピング対象になる文字
+      const nextChar = text[currentIndex + 1];
+
       if (!currentChar) return;
-      if (currentChar === ' ') {
-        currentChar = text[currentIndex + 1];
-        if (e.key === currentChar) setCurrentIndex(currentIndex + 2);
-        return;
-      }
       if (e.key === 'Shift') return;
       if (e.key !== currentChar) {
+        // 入力失敗の場合 isCollectType を　 false にして返す
         setIsCollectType(false);
         return;
       }
+
       setCurrentIndex(currentIndex + 1);
+      if (nextChar === ' ') setCurrentIndex(currentIndex + 2);
     },
     [text, currentIndex, setCurrentIndex]
   );

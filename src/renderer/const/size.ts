@@ -1,6 +1,7 @@
 export const SIZE = {
   TEXT: {
-    TITLE: 36,
+    ANNOTATION: 16,
     TYPING: 24,
+    TITLE: 36,
   },
 } as const;
