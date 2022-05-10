@@ -11,7 +11,7 @@ export const App = () => {
   const PageComponentList: { [key in TPageList]: React.ReactNode } = {
     start: <StartPage setCurrentPage={setCurrentPage} />,
     typing: <TypingPage setCurrentPage={setCurrentPage} />,
-    score: <ScorePage />,
+    score: <ScorePage setCurrentPage={setCurrentPage} />,
     ranking: <RankingPage />,
   };
   return <div>{PageComponentList[currentPage]}</div>;
