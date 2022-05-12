@@ -7,7 +7,7 @@ export type TTypingContainer = {
   isAllCleared: boolean;
 };
 
-export const typingContainer = () => {
+export const typingContainer = (): TTypingContainer => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [word, setWord] = useState('');
   const [isAllCleared, setiIsAllCleared] = useState(false);
