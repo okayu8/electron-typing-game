@@ -25,14 +25,16 @@ export const useCurrentTyping = (
       const nextChar = text[currentIndex + 1];
 
       if (!currentChar) return;
+      // Shiftキーが入力された場合はリターン
       if (e.key === 'Shift') return;
       if (e.key !== currentChar) {
-        // 入力失敗の場合 isCollectType を　 false にして返す
+        // 入力失敗の場合 isCollectType を　 false にしてリターン
         setIsCollectType(false);
         return;
       }
 
       setCurrentIndex(currentIndex + 1);
+      // 次の文字が空白だった場合、currentIndexのカウントをさらに1進める
       if (nextChar === ' ') setCurrentIndex(currentIndex + 2);
     },
     [text, currentIndex, setCurrentIndex]
