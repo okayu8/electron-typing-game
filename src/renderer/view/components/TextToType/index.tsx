@@ -7,12 +7,19 @@ import { COLOR, SIZE } from '../../../const';
 export type TTextToType = {
   text: string;
   onClearDisplayWord: () => void;
+  /** ミスタイプカウント用関数 */
+  countUpMissTypes: () => void;
 };
 
-export const TextToType = ({ text, onClearDisplayWord }: TTextToType) => {
+export const TextToType = ({
+  text,
+  onClearDisplayWord,
+  countUpMissTypes,
+}: TTextToType) => {
   const { currentIndex, isCollectType } = useCurrentTyping(
     text,
-    onClearDisplayWord
+    onClearDisplayWord,
+    countUpMissTypes
   );
   const { typedText, typingText, untypedText } = useTypedText(
     text,

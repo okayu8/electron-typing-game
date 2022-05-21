@@ -11,7 +11,7 @@ export type TSartPage = {
 export const StartPage = ({ setCurrentPage }: TSartPage) => {
   return (
     <Wrapper>
-      <h1>Typing Game</h1>
+      <h1>Aphorism Typing</h1>
       <button onClick={() => setCurrentPage(PAGE_LIST.TYPING)}>START</button>
       <AnnotationArea>
         <Annotation>*Please set keyboard input to half-width input.</Annotation>
