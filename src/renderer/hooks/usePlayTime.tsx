@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 
 export type TUsePlayTime = {
+  /** 文字列の分秒。画面表示時に使用 */
   timeCount: number;
+  /** 秒数。スコア計測時に利用 */
   playTime: string;
 };
 
 export const usePlayTime = (): TUsePlayTime => {
+  /** 秒数 */
   const [timeCount, setCount] = useState(0);
+  /** 秒数を分秒に変換した文字列型 */
   const [playTime, setPlayTime] = useState('0:00');
 
   const countup = () => {

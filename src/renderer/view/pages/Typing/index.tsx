@@ -1,27 +1,26 @@
-import { useEffect } from 'react';
-
 import { TextToType } from '../../components/TextToType';
 import { typingContainer } from './typingContainer';
-import { TPageList } from '../../../../common/types';
-import { PAGE_LIST } from '../../../../common/const';
-import { usePlayTime } from '../../../hooks/usePlayTime';
+import { TPageList, TScore } from '../../../../common/types';
 
 type TTypingPage = {
   setCurrentPage: (pageName: TPageList) => void;
+  setScore: (score: TScore) => void;
 };
-export const TypingPage = ({ setCurrentPage }: TTypingPage) => {
-  const { word, clearDisplayWord, isAllCleared } = typingContainer();
-  const { timeCount, playTime } = usePlayTime();
-
-  useEffect(() => {
-    if (isAllCleared) setCurrentPage(PAGE_LIST.SCORE);
-  }, [isAllCleared]);
+export const TypingPage = ({ setCurrentPage, setScore }: TTypingPage) => {
+  const {
+    states: { word, playTime },
+    functions: { handleClearDisplayWord, handleMissTypes },
+  } = typingContainer({ setCurrentPage, setScore });
 
   return (
     <div>
       <div>
         {word && (
-          <TextToType text={word} onClearDisplayWord={clearDisplayWord} />
+          <TextToType
+            text={word}
+            onClearDisplayWord={handleClearDisplayWord}
+            countUpMissTypes={handleMissTypes}
+          />
         )}
       </div>
       <div>{playTime}</div>

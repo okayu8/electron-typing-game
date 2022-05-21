@@ -7,12 +7,17 @@ export type TUseCurrentTyping = {
 
 export const useCurrentTyping = (
   text: string,
-  onClearDisplayWord: () => void
+  onClearDisplayWord: () => void,
+  countUpMissTypes: () => void
 ): TUseCurrentTyping => {
   // クリア文字数カウント
   const [currentIndex, setCurrentIndex] = useState(0);
   // 正しい文字をタイプしたかのフラグ
   const [isCollectType, setIsCollectType] = useState(true);
+
+  useEffect(() => {
+    if (!isCollectType) countUpMissTypes();
+  }, [isCollectType]);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
