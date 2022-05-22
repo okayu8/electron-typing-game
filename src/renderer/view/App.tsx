@@ -12,7 +12,13 @@ export const App = () => {
   const { score, setScore } = useScore();
   const PageComponentList: { [key in TPageList]: React.ReactNode } = {
     start: <StartPage setCurrentPage={setCurrentPage} />,
-    typing: <TypingPage setCurrentPage={setCurrentPage} setScore={setScore} />,
+    typing: (
+      <TypingPage
+        setCurrentPage={setCurrentPage}
+        setScore={setScore}
+        numberOfQuestions={5}
+      />
+    ),
     score: <ScorePage setCurrentPage={setCurrentPage} score={score} />,
     ranking: <RankingPage />,
   };

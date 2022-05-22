@@ -5,12 +5,17 @@ import { TPageList, TScore } from '../../../../common/types';
 type TTypingPage = {
   setCurrentPage: (pageName: TPageList) => void;
   setScore: (score: TScore) => void;
+  numberOfQuestions: number;
 };
-export const TypingPage = ({ setCurrentPage, setScore }: TTypingPage) => {
+export const TypingPage = ({
+  setCurrentPage,
+  setScore,
+  numberOfQuestions,
+}: TTypingPage) => {
   const {
     states: { word, playTime },
     functions: { handleClearDisplayWord, handleMissTypes },
-  } = typingContainer({ setCurrentPage, setScore });
+  } = typingContainer({ setCurrentPage, setScore, numberOfQuestions });
 
   return (
     <div>

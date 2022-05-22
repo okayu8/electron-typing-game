@@ -9,6 +9,7 @@ import { TPageList, TScore } from '../../../../common/types';
 export type TTypingContainer = {
   setCurrentPage: (pageName: TPageList) => void;
   setScore: (score: TScore) => void;
+  numberOfQuestions: number;
 };
 
 export type TTypingContainerReturnValue = {
@@ -26,6 +27,7 @@ export type TTypingContainerReturnValue = {
 export const typingContainer = ({
   setCurrentPage,
   setScore,
+  numberOfQuestions,
 }: TTypingContainer): TTypingContainerReturnValue => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [word, setWord] = useState('');
@@ -34,9 +36,9 @@ export const typingContainer = ({
   const { timeCount, playTime } = usePlayTime();
   const [selectedWords, setSelectedWords] = useState<TWords>([]);
 
-  // words　からランダムで5題抜き出す。APIからデータを受け取るようになった場合は不要な処理
+  // words　からランダムで抜き出す。APIからデータを受け取るようになった場合は不要な処理
   useEffect(() => {
-    const selected = randomSelectWords(words, 5);
+    const selected = randomSelectWords(words, numberOfQuestions);
     setSelectedWords(selected);
     // 初期描画時のみ
   }, []);
