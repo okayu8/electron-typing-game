@@ -10,7 +10,7 @@ export type TScorePage = {
 export const ScorePage = ({ setCurrentPage, score }: TScorePage) => {
   return (
     <div>
-      <h1>Score Page.</h1>
+      <h1>Score</h1>
       <p>time: {score.displayTime}</p>
       <p>number of all typed words: {score.numberOfAllTyped}</p>
       <p>miss type: {score.missType}</p>
