@@ -20,6 +20,15 @@ if (isDev) {
 // BrowserWindow インスタンスを作成する関数
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
+    // 初期表示
+    width: 800,
+    height: 600,
+    // ウィンドウサイズの最小
+    minWidth: 600,
+    minHeight: 400,
+    // ウィンドウサイズの最大
+    maxWidth: 1000,
+    maxHeight: 800,
     webPreferences: {
       preload: path.resolve(__dirname, 'preload.js'),
     },
