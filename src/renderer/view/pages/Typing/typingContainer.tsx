@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { TWords } from '../../../../common/types';
+import randomSelectWords from '../../../util/randomSelectWords';
 import { words } from '../../../../common/__mocks__/words';
 import { usePlayTime } from '../../../hooks/usePlayTime';
 import { PAGE_LIST } from '../../../../common/const';
@@ -31,18 +32,29 @@ export const typingContainer = ({
   const [isAllCleared, setiIsAllCleared] = useState(false);
   const [missTypes, setMissTypes] = useState(0);
   const { timeCount, playTime } = usePlayTime();
+  const [selectedWords, setSelectedWords] = useState<TWords>([]);
+
+  // words　からランダムで5題抜き出す。APIからデータを受け取るようになった場合は不要な処理
+  useEffect(() => {
+    const selected = randomSelectWords(words, 5);
+    setSelectedWords(selected);
+    // 初期描画時のみ
+  }, []);
 
   useEffect(() => {
-    if (words[currentIndex]) {
-      setWord(words[currentIndex].text);
+    if (!selectedWords.length) {
+      return;
+    }
+    if (selectedWords[currentIndex]) {
+      setWord(selectedWords[currentIndex].text);
     } else {
       setiIsAllCleared(true);
     }
-  }, [currentIndex]);
+  }, [currentIndex, selectedWords]);
 
   const numberOfAllTyped = (): number => {
     let count = 0;
-    words.map((word) => {
+    selectedWords.map((word) => {
       const wordLength = word.text.trim().length;
       count += wordLength;
     });
@@ -67,7 +79,7 @@ export const typingContainer = ({
         clearTime: timeCount,
         displayTime: playTime,
         missType: missTypes,
-        words: words,
+        words: selectedWords,
         numberOfAllTyped: numberOfAllTyped(),
       });
       setCurrentPage(PAGE_LIST.SCORE);
