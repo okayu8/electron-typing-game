@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import { Button } from '../../components/Button';
 import { TPageList } from '../../../../common/types';
 import { PAGE_LIST } from '../../../../common/const';
 import { SIZE } from '../../../const/size';
@@ -11,8 +12,11 @@ export type TSartPage = {
 export const StartPage = ({ setCurrentPage }: TSartPage) => {
   return (
     <Wrapper>
-      <h1>Aphorism Typing</h1>
-      <button onClick={() => setCurrentPage(PAGE_LIST.TYPING)}>START</button>
+      <TopSecitionWrapper>
+        <Title>Aphorism Typing</Title>
+        <Description>Press the START or press the SPACE key.</Description>
+        <Button onClick={() => setCurrentPage(PAGE_LIST.TYPING)}>START</Button>
+      </TopSecitionWrapper>
       <AnnotationArea>
         <Annotation>*Please set keyboard input to half-width input.</Annotation>
         <Annotation>*No need to enter space key</Annotation>
@@ -25,7 +29,49 @@ const Wrapper = styled.div`
   width: 800px;
 `;
 
-const AnnotationArea = styled.div``;
+const TopSecitionWrapper = styled.section`
+  text-align: center;
+  margin: ${SIZE.MARGIN.SIZEx6}px;
+`;
+
+const Title = styled.h1`
+  font-size: ${SIZE.TEXT.TITLE}px;
+  margin: ${SIZE.MARGIN.SIZEx18}px 0;
+  animation-name: fade-in;
+  animation-duration: 3s;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
+const Description = styled.p`
+  font-size: ${SIZE.TEXT.DESCRIPTION}px;
+  animation-name: fade-in-out;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 0.8;
+    }
+  }
+`;
+
+const AnnotationArea = styled.div`
+  margin: auto;
+  max-width: 400px;
+`;
 
 const Annotation = styled.p`
   font-size: ${SIZE.TEXT.ANNOTATION};
