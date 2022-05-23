@@ -13,10 +13,21 @@
     "dev:webpack": "cross-env NODE_ENV=\"development\" webpack",
     "dev:electron": "wait-on ./dist/index.html && cross-env NODE_ENV=\"development\" electron .",
     "build": "cross-env NODE_ENV=\"production\" webpack --progress",
+    "?build:mac": "mac版のdmgやappファイル等をビルドします。",
+    "build:mac": "yarn build && electron-builder --mac --x64",
+    "?build:win": "win版のexeファイル等をビルドします。",
+    "build:win": "yarn build && electron-builder --win --x64",
     "?info": "各スクリプトの説明文を表示します。",
     "info": "npm-scripts-info",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "build": {
+    "appId": "com.electron.aphorismTyping",
+    "productName": "AphorismTyping",
+    "files": [
+      "dist/**/*"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -35,6 +46,7 @@
     "babel-loader": "^8.2.3",
     "css-loader": "^6.6.0",
     "electron": "^17.0.1",
+    "electron-builder": "^23.0.3",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-search-devtools": "^1.5.3",
     "eslint": "^8.9.0",
