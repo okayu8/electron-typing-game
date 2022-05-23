@@ -1,3 +1,5 @@
+import { Global } from '@emotion/react';
+import { style } from './styles/global';
 import { useDisplayPage } from '../hooks/useDisplayPage';
 import { useScore } from '../hooks/useScore';
 import { TPageList } from '../../common/types';
@@ -22,5 +24,10 @@ export const App = () => {
     score: <ScorePage setCurrentPage={setCurrentPage} score={score} />,
     ranking: <RankingPage />,
   };
-  return <div>{PageComponentList[currentPage]}</div>;
+  return (
+    <>
+      <Global styles={style} />
+      <div>{PageComponentList[currentPage]}</div>
+    </>
+  );
 };

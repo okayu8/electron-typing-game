@@ -45,9 +45,9 @@ const TypedText = styled.span`
 
 const TypingText = styled.span<{ isCollectType: boolean }>`
   color: ${(props) =>
-    props.isCollectType ? COLOR.TEXT.BLACK : COLOR.TEXT.ORANGE};
+    props.isCollectType ? COLOR.TEXT.WHITE : COLOR.TEXT.ORANGE};
 `;
 
 const UntypedTex = styled.span`
-  color: ${COLOR.TEXT.BLACK};
+  color: ${COLOR.TEXT.WHITE};
 `;
