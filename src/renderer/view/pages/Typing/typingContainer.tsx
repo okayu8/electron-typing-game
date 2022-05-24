@@ -17,6 +17,8 @@ export type TTypingContainerReturnValue = {
   states: {
     word: string;
     playTime: string;
+    waitTime: number;
+    isWaitToStart: boolean;
   };
   functions: {
     handleClearDisplayWord: () => void;
@@ -33,7 +35,7 @@ export const typingContainer = ({
   const [word, setWord] = useState('');
   const [isAllCleared, setiIsAllCleared] = useState(false);
   const [missTypes, setMissTypes] = useState(0);
-  const { timeCount, playTime } = usePlayTime();
+  const { timeCount, playTime, waitTime, isWaitToStart } = usePlayTime();
   const [selectedWords, setSelectedWords] = useState<TWords>([]);
 
   // words　からランダムで抜き出す。APIからデータを受け取るようになった場合は不要な処理
@@ -93,6 +95,8 @@ export const typingContainer = ({
     states: {
       word,
       playTime,
+      waitTime,
+      isWaitToStart,
     },
     functions: { handleClearDisplayWord, handleMissTypes },
   };
