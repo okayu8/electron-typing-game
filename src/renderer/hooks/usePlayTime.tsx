@@ -5,6 +5,8 @@ export type TUsePlayTime = {
   timeCount: number;
   /** 秒数。スコア計測時に利用 */
   playTime: string;
+  waitTime: number;
+  isWaitToStart: boolean;
 };
 
 export const usePlayTime = (): TUsePlayTime => {
@@ -12,15 +14,27 @@ export const usePlayTime = (): TUsePlayTime => {
   const [timeCount, setCount] = useState(0);
   /** 秒数を分秒に変換した文字列型 */
   const [playTime, setPlayTime] = useState('0:00');
+  /** スタートまでの時間 */
+  const [waitTime, setWaitTime] = useState(3);
+  /** スタート待機フラグ */
+  const [isWaitToStart, setIsWaitToStart] = useState(true);
 
   const countup = () => {
-    const currentCount = timeCount + 1;
-    setCount(currentCount);
+    if (isWaitToStart) {
+      // 待機フラグが有効の場合、waitTimeをdecrementsする
+      setWaitTime(waitTime - 1);
 
-    const seconds =
-      (currentCount < 10 ? '0' : '') + (currentCount % 60).toString();
-    const minutes = Math.floor(currentCount / 60).toString();
-    setPlayTime(`${minutes}:${seconds}`);
+      if (waitTime === 1) setIsWaitToStart(false);
+    }
+    if (!isWaitToStart) {
+      const currentCount = timeCount + 1;
+      setCount(currentCount);
+
+      const seconds =
+        (currentCount < 10 ? '0' : '') + (currentCount % 60).toString();
+      const minutes = Math.floor(currentCount / 60).toString();
+      setPlayTime(`${minutes}:${seconds}`);
+    }
   };
 
   useEffect(() => {
@@ -31,5 +45,7 @@ export const usePlayTime = (): TUsePlayTime => {
   return {
     timeCount,
     playTime,
+    waitTime,
+    isWaitToStart,
   };
 };

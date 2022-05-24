@@ -6,6 +6,7 @@ export const SIZE = {
     TYPING: 36,
     SCORE: 40,
     TITLE: 48,
+    START_COUNT: 80,
   },
   MARGIN: {
     SIZEx2: 8,
