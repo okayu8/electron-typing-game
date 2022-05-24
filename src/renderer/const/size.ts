@@ -3,7 +3,7 @@ export const SIZE = {
     BUTTON: 16,
     ANNOTATION: 16,
     DESCRIPTION: 20,
-    TYPING: 24,
+    TYPING: 36,
     TITLE: 48,
   },
   MARGIN: {

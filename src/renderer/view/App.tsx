@@ -8,6 +8,7 @@ import { StartPage } from './pages/Start';
 import { TypingPage } from './pages/Typing';
 import { ScorePage } from './pages/Score';
 import { RankingPage } from './pages/Ranking';
+import { PageTemplate } from './template';
 
 export const App = () => {
   const { currentPage, setCurrentPage } = useDisplayPage();
@@ -27,7 +28,7 @@ export const App = () => {
   return (
     <>
       <Global styles={style} />
-      <div>{PageComponentList[currentPage]}</div>
+      <PageTemplate>{PageComponentList[currentPage]}</PageTemplate>
     </>
   );
 };

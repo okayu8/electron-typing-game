@@ -4,14 +4,16 @@ import { Button } from '../../components/Button';
 import { TPageList } from '../../../../common/types';
 import { PAGE_LIST } from '../../../../common/const';
 import { SIZE } from '../../../const/size';
+import { useKeyDownTheSpaceListener } from '../../../hooks/useKeyDownTheSpaceListener';
 
 export type TSartPage = {
   setCurrentPage: (pageName: TPageList) => void;
 };
 
 export const StartPage = ({ setCurrentPage }: TSartPage) => {
+  useKeyDownTheSpaceListener(setCurrentPage, PAGE_LIST.TYPING);
   return (
-    <Wrapper>
+    <>
       <TopSecitionWrapper>
         <Title>Aphorism Typing</Title>
         <Description>Press the START or press the SPACE key.</Description>
@@ -21,13 +23,9 @@ export const StartPage = ({ setCurrentPage }: TSartPage) => {
         <Annotation>*Please set keyboard input to half-width input.</Annotation>
         <Annotation>*No need to enter space key</Annotation>
       </AnnotationArea>
-    </Wrapper>
+    </>
   );
 };
-
-const Wrapper = styled.div`
-  width: 800px;
-`;
 
 const TopSecitionWrapper = styled.section`
   text-align: center;
