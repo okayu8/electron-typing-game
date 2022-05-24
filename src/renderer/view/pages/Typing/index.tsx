@@ -3,23 +3,23 @@ import styled from '@emotion/styled';
 import { TextToType } from '../../components/TextToType';
 import { typingContainer } from './typingContainer';
 import { PAGE_LIST } from '../../../../common/const';
-import { TPageList, TScore } from '../../../../common/types';
+import { TPageList, TResult } from '../../../../common/types';
 import { Button } from '../../components/Button';
 
 type TTypingPage = {
   setCurrentPage: (pageName: TPageList) => void;
-  setScore: (score: TScore) => void;
+  setResult: (result: TResult) => void;
   numberOfQuestions: number;
 };
 export const TypingPage = ({
   setCurrentPage,
-  setScore,
+  setResult,
   numberOfQuestions,
 }: TTypingPage) => {
   const {
     states: { word, playTime },
     functions: { handleClearDisplayWord, handleMissTypes },
-  } = typingContainer({ setCurrentPage, setScore, numberOfQuestions });
+  } = typingContainer({ setCurrentPage, setResult, numberOfQuestions });
 
   return (
     <Wrapper>

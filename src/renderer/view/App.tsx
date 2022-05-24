@@ -1,7 +1,7 @@
 import { Global } from '@emotion/react';
 import { style } from './styles/global';
 import { useDisplayPage } from '../hooks/useDisplayPage';
-import { useScore } from '../hooks/useScore';
+import { useResult } from '../hooks/useResult';
 import { TPageList } from '../../common/types';
 
 import { StartPage } from './pages/Start';
@@ -12,17 +12,17 @@ import { PageTemplate } from './template';
 
 export const App = () => {
   const { currentPage, setCurrentPage } = useDisplayPage();
-  const { score, setScore } = useScore();
+  const { result, setResult } = useResult();
   const PageComponentList: { [key in TPageList]: React.ReactNode } = {
     start: <StartPage setCurrentPage={setCurrentPage} />,
     typing: (
       <TypingPage
         setCurrentPage={setCurrentPage}
-        setScore={setScore}
+        setResult={setResult}
         numberOfQuestions={5}
       />
     ),
-    score: <ScorePage setCurrentPage={setCurrentPage} score={score} />,
+    score: <ScorePage setCurrentPage={setCurrentPage} result={result} />,
     ranking: <RankingPage />,
   };
   return (

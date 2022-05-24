@@ -3,7 +3,7 @@ export type TWords = {
   author: string;
 }[];
 
-export type TScore = {
+export type TResult = {
   clearTime: number;
   displayTime: string;
   missType: number;

@@ -4,11 +4,11 @@ import randomSelectWords from '../../../util/randomSelectWords';
 import { words } from '../../../../common/__mocks__/words';
 import { usePlayTime } from '../../../hooks/usePlayTime';
 import { PAGE_LIST } from '../../../../common/const';
-import { TPageList, TScore } from '../../../../common/types';
+import { TPageList, TResult } from '../../../../common/types';
 
 export type TTypingContainer = {
   setCurrentPage: (pageName: TPageList) => void;
-  setScore: (score: TScore) => void;
+  setResult: (result: TResult) => void;
   numberOfQuestions: number;
 };
 
@@ -26,7 +26,7 @@ export type TTypingContainerReturnValue = {
 
 export const typingContainer = ({
   setCurrentPage,
-  setScore,
+  setResult,
   numberOfQuestions,
 }: TTypingContainer): TTypingContainerReturnValue => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -77,7 +77,7 @@ export const typingContainer = ({
   // クリア時の処理
   useEffect(() => {
     if (isAllCleared) {
-      setScore({
+      setResult({
         clearTime: timeCount,
         displayTime: playTime,
         missType: missTypes,

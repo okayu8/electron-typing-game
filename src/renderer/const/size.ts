@@ -4,6 +4,7 @@ export const SIZE = {
     ANNOTATION: 16,
     DESCRIPTION: 20,
     TYPING: 36,
+    SCORE: 40,
     TITLE: 48,
   },
   MARGIN: {

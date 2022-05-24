@@ -1,2 +1,2 @@
 export * from './page';
-export * from './score';
+export * from './result';
