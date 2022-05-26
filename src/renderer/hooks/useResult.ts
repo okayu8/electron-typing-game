@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { PAGE_LIST } from '../../common/const';
 import { TResult } from '../../common/types';
 
 export type TUseResult = {

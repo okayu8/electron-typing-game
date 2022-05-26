@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { COLOR } from '../../const';
 
 export const style = css`
   html {
@@ -12,11 +13,11 @@ export const style = css`
     -moz-letter-spacing: 0.03em;
     -ms-letter-spacing: 0.03em;
     letter-spacing: 0.03em;
-    color: #fff;
+    color: ${COLOR.TEXT.WHITE};
   }
 
   body {
-    background: #282828;
+    background: ${COLOR.BACKGROUND.SUMI};
     margin: 24px;
   }
 

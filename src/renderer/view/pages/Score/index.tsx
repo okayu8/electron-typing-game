@@ -4,8 +4,9 @@ import { TPageList } from '../../../../common/types';
 import { PAGE_LIST } from '../../../../common/const';
 import { TResult } from '../../../../common/types';
 import { Button } from '../../components/Button';
+import { AphorismsList } from '../../components/AphorismsList';
 import { SIZE } from '../../../const';
-import { displayScore } from './displayScore';
+import { getScoreAndEvaluation } from './getScoreAndEvaluation';
 
 export type TScorePage = {
   setCurrentPage: (pageName: TPageList) => void;
@@ -13,7 +14,7 @@ export type TScorePage = {
 };
 
 export const ScorePage = ({ setCurrentPage, result }: TScorePage) => {
-  const { numberOfScore, evaluation } = displayScore(
+  const { numberOfScore, evaluation } = getScoreAndEvaluation(
     result.clearTime,
     result.numberOfAllTyped,
     result.missType
@@ -35,6 +36,7 @@ export const ScorePage = ({ setCurrentPage, result }: TScorePage) => {
           Go to start page
         </Button>
       </Footer>
+      <AphorismsList text="Aphorisms this time" words={result.words} />
     </>
   );
 };
@@ -67,4 +69,5 @@ const ResultTitle = styled.p`
 const Footer = styled.div`
   display: flex;
   justify-content: end;
+  margin-bottom: ${SIZE.MARGIN.SIZEx6}px;
 `;
