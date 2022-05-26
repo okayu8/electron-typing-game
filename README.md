@@ -2,6 +2,8 @@
 
 electtron + react で構築したタイピングゲーム
 
+<img src="https://user-images.githubusercontent.com/33960934/170536068-1ff59a49-482e-474e-9178-071bc78dfec6.gif" width="500px">
+
 ## 環境構築
 
 ### 依存関係
