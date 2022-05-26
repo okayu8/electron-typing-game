@@ -1,5 +1,6 @@
 export type TWords = {
   text: string;
+  japanese: string;
   author: string;
 }[];
 

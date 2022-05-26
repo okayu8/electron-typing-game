@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { SIZE } from '../../../const/size';
+import { SIZE, COLOR } from '../../../const';
 
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 
@@ -11,7 +11,7 @@ export type TButton = {
 } & ButtonProps;
 
 export const Button = styled.button<TButton>`
-  background: #232bc8;
+  background: ${COLOR.BACKGROUND.DARK_BLUE};
   color: #fff;
   cursor: pointer;
   font-size: ${SIZE.TEXT.BUTTON}px;
@@ -20,6 +20,6 @@ export const Button = styled.button<TButton>`
   transition: all 0.3s;
 
   &:hover {
-    background: #23bbc8;
+    background: ${COLOR.BACKGROUND.LIGHT_BLUE};
   }
 `;

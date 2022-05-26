@@ -73,4 +73,5 @@ const AnnotationArea = styled.div`
 
 const Annotation = styled.p`
   font-size: ${SIZE.TEXT.ANNOTATION};
+  margin: ${SIZE.MARGIN.SIZEx1}px;
 `;
